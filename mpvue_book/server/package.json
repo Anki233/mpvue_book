@@ -5,6 +5,7 @@
   "author": "Anki233 <1750567318@qq.com>",
   "private": true,
   "dependencies": {
+    "flyio": "^0.6.14",
     "koa": "^2.10.0",
     "koa-router": "^7.4.0",
     "nodemon": "^2.0.7"

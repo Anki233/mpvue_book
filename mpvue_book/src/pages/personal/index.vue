@@ -26,7 +26,6 @@ export default {
       wx.getUserProfile({
         desc:'正在获取',//不写不弹提示框
         success:function(res){
-          console.log(res)
           that.userInfo = res.userInfo
         },
         fail:function(err){
