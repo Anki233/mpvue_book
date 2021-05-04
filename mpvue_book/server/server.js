@@ -3,6 +3,7 @@
 let Koa = require('koa')
 let KoaRouter = require('koa-router')
 let Fly = require('flyio/src/node')
+let jwt = require('jsonwebtoken')
 let datas = require('./datas/data.json')
 // 1. 生成应用及路由器实例
 const app = new Koa()
@@ -39,8 +40,13 @@ router.get('/getOpenId', async (ctx, next) => {
   // 发送请求给微信接口，获取openId
   let result = await fly.get(url)
   let userInfo = JSON.parse(result.data)
+  // 将用户的openId存入数据库，openId
+
+  // 自定义登录状态 就是根据用户的openId和sessionKey进行加密生成token 并返回给前端
+  // 对openId和sessionKey进行加密
+  let token = jwt.sign(userInfo,'jkl@zhuangbei.com')
   // 3. 响应数据
-  ctx.body = userInfo
+  ctx.body = token
 })
 
 // 2. 使用路由器及路由
