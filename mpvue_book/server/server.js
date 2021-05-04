@@ -2,7 +2,7 @@
 
 let Koa = require('koa')
 let KoaRouter = require('koa-router')
-
+let datas = require('./datas/data.json')
 // 1. 生成应用及路由器实例
 const app = new Koa()
 const router = new KoaRouter()
@@ -15,6 +15,16 @@ router.get('/',(ctx,next) => {
 
   // 3. 响应数据
   ctx.body = '服务器返回的数据'
+})
+
+// 搜索图书的接口
+router.get('/searchBooks',(ctx,next) => {
+  // 1. 获取请求的参数
+  let req = ctx.query.req
+  // 2. 根据请求的地址和参数处理数据
+  let booksArr = datas
+  // 3. 响应数据
+  ctx.body = booksArr
 })
 
 

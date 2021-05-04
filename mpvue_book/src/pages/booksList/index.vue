@@ -14,13 +14,17 @@
 
 <script>
 export default {
+  props: ['booksArr'],
   data() {
     return {
       booksArr: []
     }
   },
   mounted() {
-    this.booksArr = JSON.parse(this.$mp.query.booksArr)
+    // 路由跳转的时候使用
+    if (this.$mp) {
+      this.booksArr = JSON.parse(this.$mp.query.booksArr)
+    }
   }
 }
 </script>
