@@ -33,8 +33,8 @@ router.get('/searchBooks', (ctx, next) => {
 router.get('/getOpenId', async (ctx, next) => {
   // 1. 获取请求的参数
   let code = ctx.query.code
-  let appId = 'wxc63cc57a0711cc27'
-  let appSecret = '8e23bea9310c2ea267f6498b76e41bb1'
+  let appId = '你的appId'
+  let appSecret = '你的appSecret'
   // 2. 根据请求的地址和参数处理数据
   let url = `https://api.weixin.qq.com/sns/jscode2session?appid=${appId}&secret=${appSecret}&js_code=${code}&grant_type=authorization_code`
   // 发送请求给微信接口，获取openId
