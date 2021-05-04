@@ -8,9 +8,14 @@ export default {
         // 1. 获取用户登录的临时凭证
         let code = res.code
         // 2. 发送code给服务器端
-        let result = await request('getOpenId', {code})
+        let token = await request('getOpenId', {code})
+        wx.setStorageSync('token',token)
       }
     })
+
+    // // 测试地址token
+    // let result = await request('/test')
+    // console.log(result)
   }
 }
 </script>

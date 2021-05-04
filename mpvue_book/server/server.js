@@ -49,6 +49,19 @@ router.get('/getOpenId', async (ctx, next) => {
   ctx.body = token
 })
 
+// // 测试验证身份token的接口
+// router.get('/test',(ctx,next) => {
+//   // 获取token的值
+//   let token = ctx.request.header.authorization
+//   let result
+//   try {
+//     result = jwt.verify(token,'jkl@zhuangbei.com')
+//     ctx.body = '验证成功'
+//   }catch (e) {
+//     ctx.body = '验证失败'
+//   }
+// })
+
 // 2. 使用路由器及路由
 app
   .use(router.routes()) // 声明使用路由
